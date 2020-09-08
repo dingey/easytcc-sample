@@ -1,0 +1,35 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: user-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.216.128:3306/easytcc-sample
+    username: root
+    password: root
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5 # 拉取服务列表间隔时间
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    lease-expiration-duration-in-seconds: 2 #指定时间内没有数据上报可能会被清理掉
+    lease-renewal-interval-in-seconds: 2 #服务状态上报间隔
+    health-check-url-path: /actuator/health
+feign:
+  hystrix:
+    enabled: true
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper:
+    strategy: identity
+#logback
+logging:
+  path: /logs/easytcc/${spring.application.name}_${server.port}
+  level:
+    com:
+      d: info
+swagger:
+  all: true

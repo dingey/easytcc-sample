@@ -1,0 +1,22 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: easytcc-server
+#  redis:
+#    host: 192.168.216.128
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5 # 拉取服务列表间隔时间
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    lease-expiration-duration-in-seconds: 2 #指定时间内没有数据上报可能会被清理掉
+    lease-renewal-interval-in-seconds: 2 #服务状态上报间隔
+    health-check-url-path: /actuator/health
+swagger:
+  all: true
+#easy:
+#  tcc:
+#    server:
+#      store: redis

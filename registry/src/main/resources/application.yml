@@ -1,0 +1,11 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: registry
+eureka:
+  server:
+    registry-sync-retry-wait-ms: 3000
+    a-s-g-cache-expiry-timeout-ms: 5000
+    eviction-interval-timer-in-ms: 5000
+    enable-self-preservation: false
